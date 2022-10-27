@@ -1,0 +1,84 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://src/UI/Elements/Button.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/theme/gdquest.theme" type="Theme" id=2]
+[ext_resource path="res://src/UI/Menus/Characters/CharacterSelector.gd" type="Script" id=3]
+[ext_resource path="res://src/UI/Menus/Characters/CharacterList.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/UI/Components/ConfirmationPopup.tscn" type="PackedScene" id=5]
+
+[node name="CharacterSelector" type="PanelContainer"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -256.0
+margin_top = -204.0
+margin_right = 256.0
+margin_bottom = 204.0
+theme = ExtResource( 2 )
+script = ExtResource( 3 )
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+margin_right = 512.0
+margin_bottom = 408.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+margin_left = 24.0
+margin_top = 24.0
+margin_right = 488.0
+margin_bottom = 384.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 20
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CharacterList" parent="MarginContainer/VBoxContainer" instance=ExtResource( 4 )]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 0.0
+margin_top = 0.0
+margin_right = 464.0
+margin_bottom = 280.0
+alignment = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+margin_top = 300.0
+margin_right = 464.0
+margin_bottom = 360.0
+alignment = 1
+
+[node name="LoginButton" parent="MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource( 1 )]
+margin_left = 24.0
+margin_right = 224.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 200, 60 )
+size_flags_horizontal = 4
+text = "Login"
+
+[node name="CreateButton" parent="MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource( 1 )]
+margin_left = 240.0
+margin_right = 440.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 200, 60 )
+size_flags_horizontal = 4
+text = "Create new"
+
+[node name="ConfirmationPopup" parent="." instance=ExtResource( 5 )]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 63.0
+margin_top = 103.0
+margin_right = 447.0
+margin_bottom = 303.0
+
+[connection signal="character_selected" from="MarginContainer/VBoxContainer/CharacterList" to="." method="_on_CharacterList_character_selected"]
+[connection signal="requested_deletion" from="MarginContainer/VBoxContainer/CharacterList" to="." method="_on_CharacterList_requested_deletion"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/LoginButton" to="." method="_on_LoginButton_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/CreateButton" to="." method="_on_CreateButton_pressed"]
