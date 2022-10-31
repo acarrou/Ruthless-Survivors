@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=2]
 
-[ext_resource path="res://assets/background/gradient.svg" type="Texture" id=1]
+[ext_resource path="res://src/World/Assets/Maps/Tileset Grass.png" type="Texture" id=1]
 [ext_resource path="res://assets/background/graph.svg" type="Texture" id=2]
 [ext_resource path="res://assets/background/gaussian_blur_lod_15_samples.shader" type="Shader" id=3]
 [ext_resource path="res://assets/background/sparkle.png" type="Texture" id=4]

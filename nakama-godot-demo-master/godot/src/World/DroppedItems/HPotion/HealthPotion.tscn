@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://DroppedItems/HPotion/HealthPotion.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Icons/tile148.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Effects/shadow.png" type="Texture" id=3]
+
+[sub_resource type="CircleShape2D" id=3]
+radius = 135.237
+
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 25.0
+height = 8.0
+
+[node name="HealthPotion" type="KinematicBody2D"]
+script = ExtResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+scale = Vector2( 2, 2 )
+texture = ExtResource( 2 )
+
+[node name="Shadow" type="Sprite" parent="."]
+modulate = Color( 1, 1, 1, 0.501961 )
+position = Vector2( 2.38419e-07, 24 )
+scale = Vector2( 0.933735, 1 )
+z_index = -1
+texture = ExtResource( 3 )
+
+[node name="Magnet" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Magnet"]
+shape = SubResource( 3 )
+
+[node name="Health" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Health"]
+shape = SubResource( 2 )
+
+[connection signal="area_entered" from="Magnet" to="." method="_on_Magnet_area_entered"]
+[connection signal="area_entered" from="Health" to="." method="_on_Health_area_entered"]

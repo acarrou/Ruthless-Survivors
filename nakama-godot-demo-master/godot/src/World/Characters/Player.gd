@@ -34,7 +34,7 @@ func setup(username: String, color: Color, position: Vector2, level_limits: Rect
 	self.color = color
 	global_position = position
 	spawn()
-	camera_2d.set_limits(level_limits)
+	#camera_2d.set_limits(level_limits)
 	set_process(true)
 	show()
 
@@ -64,6 +64,7 @@ func _get_direction() -> Vector2:
 
 	var new_direction := Vector2(Input.get_action_strength("move_right") - Input.get_action_strength("move_left"), Input.get_action_strength("move_down") - Input.get_action_strength("move_up"))
 	if new_direction != last_direction:
+		#$AnimationSprite.animation = "Wizard Run"
 		ServerConnection.send_direction_update(new_direction.x)
 		last_direction = new_direction
 	return new_direction

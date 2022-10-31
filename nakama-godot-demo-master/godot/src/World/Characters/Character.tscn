@@ -1,12 +1,19 @@
 [gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://assets/theme/fonts/montserrat/Montserrat-Medium.ttf" type="DynamicFontData" id=1]
-[ext_resource path="res://assets/world/character.svg" type="Texture" id=2]
 [ext_resource path="res://assets/theme/gdquest.theme" type="Theme" id=3]
 [ext_resource path="res://src/World/Characters/Character.gd" type="Script" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 41, 45 )
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [  ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
 
 [sub_resource type="DynamicFont" id=2]
 size = 40
@@ -21,10 +28,8 @@ script = ExtResource( 4 )
 position = Vector2( 0, -45 )
 shape = SubResource( 1 )
 
-[node name="Sprite" type="Sprite" parent="."]
-scale = Vector2( 1e-05, 1e-05 )
-texture = ExtResource( 2 )
-offset = Vector2( 0, -45 )
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 3 )
 
 [node name="Tween" type="Tween" parent="."]
 

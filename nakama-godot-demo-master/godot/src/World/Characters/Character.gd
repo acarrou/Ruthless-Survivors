@@ -16,7 +16,7 @@ const ANIM_OUT_DURATION := 0.25
 const MAX_SPEED := 600.0
 const JUMP_SPEED := 0
 const GRAVITY := 0
-const ACCELERATION := 5000
+const ACCELERATION := 4000
 const DRAG_AMOUNT := 0.2
 
 var color := Color.white setget _set_color
@@ -33,7 +33,7 @@ var next_input := 0.0
 var next_jump := false
 
 onready var tween := $Tween
-onready var sprite := $Sprite
+onready var sprite := $AnimatedSprite
 onready var id_label := $CenterContainer/Label
 onready var last_collision_layer := collision_layer
 onready var last_collision_mask := collision_mask
@@ -41,9 +41,19 @@ onready var last_collision_mask := collision_mask
 
 func _physics_process(delta: float) -> void:
 	move(delta)
-	
+	if (velocity.x or velocity.y != 0):
+		sprite.animation = "Wizard Run"
+		velocity = move_and_slide(velocity)
+	else:
+		sprite.animation = "Wizard Idle"
+		
+	if (0 < velocity.x):
+		sprite.flip_h = false
+	elif (velocity.x < 0):
+		sprite.flip_h = true
 
 func move(delta: float) -> void:
+	
 	var accel := ACCELERATION * direction
 	velocity = accel * delta
 	velocity.x = clamp(velocity.x, -MAX_SPEED, MAX_SPEED)
