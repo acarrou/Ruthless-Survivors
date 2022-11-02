@@ -124,11 +124,9 @@ margin_bottom = -16.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 alignment = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="RegisterButton" type="Button" parent="HBoxContainer"]
+modulate = Color( 1, 0, 0, 1 )
 margin_right = 267.0
 margin_bottom = 64.0
 rect_min_size = Vector2( 120, 60 )
@@ -136,6 +134,7 @@ size_flags_horizontal = 3
 text = "Register"
 
 [node name="CancelButton" type="Button" parent="HBoxContainer"]
+modulate = Color( 1, 0, 0, 1 )
 margin_left = 283.0
 margin_right = 551.0
 margin_bottom = 64.0
@@ -144,6 +143,7 @@ size_flags_horizontal = 3
 text = "Cancel"
 
 [node name="StatusPanel" parent="." instance=ExtResource( 7 )]
+
 [connection signal="text_entered" from="Email/LineEditValidate" to="." method="_on_LineEditValidate_text_entered"]
 [connection signal="text_entered" from="Password/LineEditValidate" to="." method="_on_LineEditValidate_text_entered"]
 [connection signal="text_entered" from="PasswordRepeat/LineEditValidate" to="." method="_on_LineEditValidate_text_entered"]

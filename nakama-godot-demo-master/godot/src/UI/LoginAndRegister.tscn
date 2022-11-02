@@ -4,7 +4,6 @@
 [ext_resource path="res://src/UI/Menus/Register/RegisterForm.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/UI/Menus/Login/LoginForm.tscn" type="PackedScene" id=4]
 
-
 [node name="LoginAndRegister" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -17,6 +16,7 @@ __meta__ = {
 visible = false
 
 [node name="RegisterForm" parent="." instance=ExtResource( 2 )]
+
 [connection signal="login_pressed" from="LoginForm" to="." method="_on_LoginForm_login_pressed"]
 [connection signal="open" from="LoginForm" to="LoginForm" method="_on_open"]
 [connection signal="register_pressed" from="LoginForm" to="." method="_on_LoginForm_register_pressed"]

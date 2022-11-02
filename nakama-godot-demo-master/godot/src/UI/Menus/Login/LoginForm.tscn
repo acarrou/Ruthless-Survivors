@@ -103,6 +103,7 @@ __meta__ = {
 }
 
 [node name="LoginButton" type="Button" parent="HBoxContainer"]
+modulate = Color( 1, 0, 0, 1 )
 margin_right = 267.0
 margin_bottom = 64.0
 rect_min_size = Vector2( 120, 60 )
@@ -110,6 +111,7 @@ size_flags_horizontal = 3
 text = "Log in"
 
 [node name="RegisterButton" type="Button" parent="HBoxContainer"]
+modulate = Color( 1, 0, 0, 1 )
 margin_left = 283.0
 margin_right = 551.0
 margin_bottom = 64.0
@@ -118,6 +120,7 @@ size_flags_horizontal = 3
 text = "Register"
 
 [node name="StatusPanel" parent="." instance=ExtResource( 3 )]
+
 [connection signal="text_entered" from="Email/LineEditValidate" to="." method="_on_LineEditValidate_text_entered"]
 [connection signal="text_entered" from="Password/LineEditValidate" to="." method="_on_LineEditValidate_text_entered"]
 [connection signal="pressed" from="HBoxContainer/LoginButton" to="." method="_on_LoginButton_pressed"]
