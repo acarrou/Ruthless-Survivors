@@ -68,7 +68,7 @@ var presences := {} setget _no_set
 # Nakama client through which sessions are created, sockets connected, and storage accessed.
 # For development purposes, it's set to the default localhost, as listed in the
 # /nakama/docker-compose.yml
-var _client := Nakama.create_client(KEY, "127.0.0.1", 7350, "http") setget _no_set
+var _client := Nakama.create_client(KEY, "164.90.158.24", 7350, "http") setget _no_set
 
 # Nakama socket through which the live game world is interacted with.
 var _socket: NakamaSocket setget _no_set
