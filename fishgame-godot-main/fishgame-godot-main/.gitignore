@@ -1,0 +1,6 @@
+/.import/
+/build/
+*.swp
+/webrtc_debug/
+/webrtc/
+/nakama/data/

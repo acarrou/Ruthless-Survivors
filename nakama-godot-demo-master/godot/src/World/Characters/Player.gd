@@ -46,9 +46,13 @@ func spawn() -> void:
 	set_process_unhandled_input(true)
 
 
-func jump() -> void:
-	.jump()
-	ServerConnection.send_jump()
+#func jump() -> void:
+#	.jump()
+#	ServerConnection.send_jump()
+
+func animation() -> void:
+	.animation()
+	ServerConnection.send_animation()
 
 
 func set_is_active(value: bool) -> void:

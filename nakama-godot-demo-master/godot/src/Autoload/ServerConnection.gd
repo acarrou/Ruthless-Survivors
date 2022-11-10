@@ -34,6 +34,7 @@ enum OpCodes {
 	UPDATE_JUMP,
 	DO_SPAWN,
 	UPDATE_COLOR,
+	UPDATE_ANIMATION
 	INITIAL_STATE
 }
 
@@ -299,6 +300,11 @@ func send_jump() -> void:
 	if _socket:
 		var payload := {id = get_user_id()}
 		_socket.send_match_state_async(_world_id, OpCodes.UPDATE_JUMP, JSON.print(payload))
+		
+func send_animation() -> void:
+	if _socket:
+		var payload := {id = get_user_id(), }
+		_socket.send_match_state_async(_world_id, OpCodes.UPDATE_ANIMATION, JSON.print(payload))
 
 
 # Sends a message to the server stating the client is spawning in after character selection.
@@ -397,6 +403,11 @@ func _on_NakamaSocket_received_match_state(match_state: NakamaRTAPI.MatchData) -
 			var color := Converter.color_string_to_color(decoded.color)
 
 			emit_signal("color_updated", id, color)
+			
+		OpCodes.UPDATE_ANIMATION:
+			var decoded: Dictionary = JSON.parse(raw).result
+
+			var animations: String = decoded.anim
 
 		OpCodes.INITIAL_STATE:
 			var decoded: Dictionary = JSON.parse(raw).result

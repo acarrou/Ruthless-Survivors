@@ -61,6 +61,9 @@ func move(delta: float) -> void:
 	velocity = move_and_slide(velocity, Vector2.UP)
 
 
+func animation() -> void:
+	sprite.animation = "Wizard Idle"
+
 func jump() -> void:
 	stretch()
 	velocity.y -= JUMP_SPEED

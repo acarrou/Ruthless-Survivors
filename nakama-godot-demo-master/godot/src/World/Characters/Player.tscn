@@ -123,6 +123,7 @@ script = ExtResource( 2 )
 position = Vector2( 3, -43 )
 frames = SubResource( 24 )
 animation = "Wizard Idle"
+frame = 4
 playing = true
 
 [node name="Tween" parent="." index="2"]
