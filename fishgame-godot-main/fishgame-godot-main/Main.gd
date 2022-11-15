@@ -19,7 +19,7 @@ func _ready() -> void:
 	OnlineMatch.connect("player_left", self, "_on_OnlineMatch_player_left")
 	
 	randomize()
-	music.play_random()
+	#music.play_random()
 
 func _get_custom_rpc_methods() -> Array:
 	return [
@@ -56,7 +56,7 @@ func _on_UILayer_change_screen(name: String, _screen) -> void:
 	if name != 'ReadyScreen':
 		if match_started:
 			match_started = false
-			music.play_random()
+			#music.play_random()
 
 func _on_UILayer_back_button() -> void:
 	ui_layer.hide_message()
@@ -149,7 +149,7 @@ func _on_Game_game_started() -> void:
 	
 	if not match_started:
 		match_started = true
-		music.play_random()
+		#music.play_random()
 
 func _on_Game_player_dead(player_id: int) -> void:
 	if GameState.online_play:
@@ -205,4 +205,5 @@ func show_winner(name: String, session_id: String = '', score: int = 0, is_match
 
 func _on_Music_song_finished(song) -> void:
 	if not music.current_song.playing:
-		music.play_random()
+		pass
+		#music.play_random()
