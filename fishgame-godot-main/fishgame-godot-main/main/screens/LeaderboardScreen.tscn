@@ -36,12 +36,12 @@ custom_constants/separation = 10
 
 [node name="Label" type="Label" parent="PanelContainer/VBoxContainer"]
 margin_right = 526.0
-margin_bottom = 24.0
+margin_bottom = 21.0
 text = "Leaderboard"
 align = 1
 
 [node name="Panel" type="Panel" parent="PanelContainer/VBoxContainer"]
-margin_top = 34.0
+margin_top = 31.0
 margin_right = 526.0
 margin_bottom = 246.0
 size_flags_horizontal = 3
@@ -58,11 +58,11 @@ __meta__ = {
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/VBoxContainer/Panel/ScrollContainer"]
 margin_right = 526.0
-margin_bottom = 212.0
+margin_bottom = 215.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="LeaderboardRecord" parent="PanelContainer/VBoxContainer/Panel/ScrollContainer/VBoxContainer" instance=ExtResource( 2 )]
 anchor_right = 0.0
 margin_right = 526.0
-margin_bottom = 24.0
+margin_bottom = 21.0

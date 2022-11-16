@@ -49,7 +49,7 @@ margin_left = 7.0
 margin_top = -12.0
 margin_right = 156.0
 margin_bottom = 12.0
-text = "Find at least"
+text = "Find at least:"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -64,9 +64,6 @@ max_value = 4.0
 value = 2.0
 align = 1
 suffix = "players"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="MatchButton" type="Button" parent="PanelContainer/VBoxContainer/MatchPanel"]
 anchor_left = 1.0
@@ -78,9 +75,6 @@ margin_top = -25.0
 margin_right = -5.0
 margin_bottom = 25.0
 text = "Match"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="CreatePanel" type="Panel" parent="PanelContainer/VBoxContainer"]
 margin_top = 68.0
@@ -97,9 +91,6 @@ margin_top = -12.0
 margin_right = 249.0
 margin_bottom = 12.0
 text = "Create a private match"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="CreateButton" type="Button" parent="PanelContainer/VBoxContainer/CreatePanel"]
 anchor_left = 1.0
@@ -127,21 +118,15 @@ anchor_top = 0.5
 anchor_bottom = 0.5
 margin_left = 7.0
 margin_top = -12.0
-margin_right = 128.0
+margin_right = 156.0
 margin_bottom = 12.0
 text = "Join match:"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="LineEdit" type="LineEdit" parent="PanelContainer/VBoxContainer/JoinPanel"]
-margin_left = 134.0
+margin_left = 157.0
 margin_top = 14.0
 margin_right = 325.0
 margin_bottom = 48.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="PasteButton" type="Button" parent="PanelContainer/VBoxContainer/JoinPanel"]
 margin_left = 326.0
@@ -149,9 +134,6 @@ margin_top = 16.0
 margin_right = 393.0
 margin_bottom = 46.0
 text = "Paste"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="JoinButton" type="Button" parent="PanelContainer/VBoxContainer/JoinPanel"]
 anchor_left = 1.0
