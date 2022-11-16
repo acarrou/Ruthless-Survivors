@@ -74,8 +74,8 @@ pickup_position = 1
 [node name="Sprite" type="Sprite" parent="." index="0"]
 position = Vector2( 24, -39 )
 texture = ExtResource( 2 )
-vframes = 2
 hframes = 4
+vframes = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
 position = Vector2( 14, -29.5 )
