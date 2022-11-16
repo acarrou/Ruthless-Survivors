@@ -204,5 +204,6 @@ margin_left = -83.0
 margin_top = -54.0
 margin_right = 83.0
 text = "Create Account"
+
 [connection signal="pressed" from="TabContainer/Login/LoginButton" to="." method="_on_LoginButton_pressed"]
 [connection signal="pressed" from="TabContainer/Create Account/CreateAccountButton" to="." method="_on_CreateAccountButton_pressed"]

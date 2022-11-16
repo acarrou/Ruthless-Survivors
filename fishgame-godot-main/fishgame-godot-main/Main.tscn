@@ -85,6 +85,7 @@ __meta__ = {
 }
 
 [node name="MuteButton" type="Button" parent="UILayer/Overlay"]
+visible = false
 margin_left = 2.0
 margin_top = 2.0
 margin_right = 30.0
@@ -122,6 +123,7 @@ bus = "Music"
 [connection signal="player_dead" from="Game" to="." method="_on_Game_player_dead"]
 [connection signal="back_button" from="UILayer" to="." method="_on_UILayer_back_button"]
 [connection signal="change_screen" from="UILayer" to="." method="_on_UILayer_change_screen"]
+[connection signal="exit_game" from="UILayer/Screens/TitleScreen" to="." method="_on_TitleScreen_exit_game"]
 [connection signal="play_local" from="UILayer/Screens/TitleScreen" to="." method="_on_TitleScreen_play_local"]
 [connection signal="play_online" from="UILayer/Screens/TitleScreen" to="." method="_on_TitleScreen_play_online"]
 [connection signal="ready_pressed" from="UILayer/Screens/ReadyScreen" to="." method="_on_ReadyScreen_ready_pressed"]

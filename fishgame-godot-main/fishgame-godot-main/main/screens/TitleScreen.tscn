@@ -13,9 +13,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 theme = ExtResource( 2 )
 script = ExtResource( 3 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchor_right = 1.0
@@ -32,9 +29,6 @@ margin_bottom = 130.0
 custom_fonts/font = SubResource( 1 )
 text = "Fish Game"
 align = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 anchor_top = 1.0
@@ -42,33 +36,48 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = -175.0
 margin_bottom = -50.0
-rect_min_size = Vector2( 0, 125 )
 custom_constants/separation = 35
 alignment = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
-[node name="LocalButton" type="Button" parent="HBoxContainer"]
-margin_left = 97.0
-margin_right = 222.0
-margin_bottom = 125.0
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 250.0
+margin_top = -175.0
+margin_right = -250.0
+margin_bottom = -50.0
+
+[node name="LocalButton" type="Button" parent="VBoxContainer"]
+margin_right = 140.0
+margin_bottom = 30.0
 rect_min_size = Vector2( 125, 0 )
 text = "Local"
 
-[node name="OnlineButton" type="Button" parent="HBoxContainer"]
-margin_left = 257.0
-margin_right = 382.0
-margin_bottom = 125.0
+[node name="OnlineButton" type="Button" parent="VBoxContainer"]
+margin_top = 34.0
+margin_right = 140.0
+margin_bottom = 64.0
 rect_min_size = Vector2( 125, 0 )
 text = "Online"
 
-[node name="CreditsButton" type="Button" parent="HBoxContainer"]
+[node name="ExitButton" type="Button" parent="VBoxContainer"]
+margin_top = 68.0
+margin_right = 140.0
+margin_bottom = 98.0
+rect_min_size = Vector2( 125, 0 )
+text = "Exit"
+
+[node name="CreditsButton" type="Button" parent="VBoxContainer"]
+visible = false
 margin_left = 417.0
+margin_top = 185.0
 margin_right = 542.0
-margin_bottom = 125.0
+margin_bottom = 310.0
 rect_min_size = Vector2( 125, 0 )
 text = "Credits"
-[connection signal="pressed" from="HBoxContainer/LocalButton" to="." method="_on_LocalButton_pressed"]
-[connection signal="pressed" from="HBoxContainer/OnlineButton" to="." method="_on_OnlineButton_pressed"]
-[connection signal="pressed" from="HBoxContainer/CreditsButton" to="." method="_on_CreditsButton_pressed"]
+
+[connection signal="pressed" from="VBoxContainer/LocalButton" to="." method="_on_LocalButton_pressed"]
+[connection signal="pressed" from="VBoxContainer/OnlineButton" to="." method="_on_OnlineButton_pressed"]
+[connection signal="pressed" from="VBoxContainer/ExitButton" to="." method="_on_ExitButton_pressed"]
+[connection signal="pressed" from="VBoxContainer/CreditsButton" to="." method="_on_CreditsButton_pressed"]
