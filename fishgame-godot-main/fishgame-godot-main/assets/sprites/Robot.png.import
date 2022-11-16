@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Run.png-d929c1b6968b5fbbf1ca2e1efc3139cf.stex"
+path="res://.import/Robot.png-9fcfb7043203c76c0c5362a5a5fbaf7c.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/Characters/Wizard/Run.png"
-dest_files=[ "res://.import/Run.png-d929c1b6968b5fbbf1ca2e1efc3139cf.stex" ]
+source_file="res://assets/sprites/Robot.png"
+dest_files=[ "res://.import/Robot.png-9fcfb7043203c76c0c5362a5a5fbaf7c.stex" ]
 
 [params]
 

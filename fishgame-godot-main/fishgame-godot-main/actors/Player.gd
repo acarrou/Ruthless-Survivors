@@ -4,7 +4,9 @@ var ExplodeEffect: PackedScene = preload("res://actors/ExplodeEffect.tscn")
 var InputBuffer: Reference = preload("res://components/InputBuffer.gd")
 
 enum PlayerSkin {
+	WIZARD,
 	ORANGE,
+	ROBOT,
 	GREEN,
 	BLUE,
 	PURPLE,
@@ -12,7 +14,9 @@ enum PlayerSkin {
 }
 
 var skin_resources = [
+	preload("res://assets/sprites/Wizard.png"),
 	preload("res://assets/sprites/whale_orange.png"),
+	preload("res://assets/sprites/Robot.png"),
 	preload("res://assets/sprites/whale_green.png"),
 	preload("res://assets/sprites/whale_blue.png"),
 	preload("res://assets/sprites/whale_purple.png"),
@@ -96,6 +100,13 @@ func set_player_skin(_player_skin: int) -> void:
 	if player_skin != _player_skin and _player_skin < PlayerSkin.MAX and _player_skin >= 0:
 		player_skin = _player_skin
 		
+		if player_skin == 1 or 3:
+			body_sprite.hframes = 8
+			body_sprite.vframes = 3
+		else:
+			body_sprite.hframes = 7
+			body_sprite.vframes = 22
+			
 		if body_sprite != null:
 			body_sprite.texture = skin_resources[player_skin]
 			fin_sprite.texture = skin_resources[player_skin]
@@ -152,7 +163,11 @@ func _on_BodySprite_frame_changed() -> void:
 
 func reset_state() -> void:
 	var current_state_name = state_machine.current_state.name if state_machine.current_state != null else "None"
-	if current_state_name != "Idle":
+	if player_skin == 1 and current_state_name != "WizIdle":
+		state_machine.change_state("WizIdle")
+	elif player_skin == 1 and current_state_name != "RobotIdle":
+		state_machine.change_state("RobotIdle")
+	elif current_state_name != "Idle":
 		state_machine.change_state("Idle")
 	set_flip_h(false)
 	visible = true
@@ -226,7 +241,7 @@ func hurt(node: Node2D) -> void:
 		return
 	
 	var current_state_name = state_machine.current_state.name if state_machine.current_state != null else "None"
-	if current_state_name == "Hurt" or current_state_name == "Dead":
+	if current_state_name == "Hurt" or current_state_name == "Dead" or current_state_name == "WizDeath" or current_state_name == "RobotDead":
 		return
 	
 	var push_back_vector = (global_position - node.global_position).normalized() * push_back_speed

@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=2]
+[gd_scene load_steps=56 format=2]
 
 [ext_resource path="res://assets/sprites/whale_orange.png" type="Texture" id=1]
 [ext_resource path="res://actors/player-states/Hurt.gd" type="Script" id=2]
@@ -22,6 +22,13 @@
 [ext_resource path="res://assets/sounds/blops/blop1.wav" type="AudioStream" id=20]
 [ext_resource path="res://assets/sounds/blops/blop2.wav" type="AudioStream" id=21]
 [ext_resource path="res://actors/player-states/Fall.gd" type="Script" id=22]
+[ext_resource path="res://assets/sprites/Robot.png" type="Texture" id=24]
+[ext_resource path="res://actors/player-states/WizDeath.gd" type="Script" id=25]
+[ext_resource path="res://actors/player-states/WizIdle.gd" type="Script" id=26]
+[ext_resource path="res://actors/player-states/WizRun.gd" type="Script" id=27]
+[ext_resource path="res://actors/player-states/RobotIdle.gd" type="Script" id=28]
+[ext_resource path="res://actors/player-states/RobotDead.gd" type="Script" id=29]
+[ext_resource path="res://actors/player-states/RobotMove.gd" type="Script" id=30]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 14.5, 28 )
@@ -215,6 +222,87 @@ tracks/0/keys = {
 "values": [ 70, 71 ]
 }
 
+[sub_resource type="Animation" id=21]
+resource_name = "Robot Dead"
+tracks/0/type = "value"
+tracks/0/path = NodePath("BodySprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 8, 9, 10, 11, 12, 13, 14, 15 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("FinSprite:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ null ]
+}
+
+[sub_resource type="Animation" id=22]
+resource_name = "Robot Idle"
+tracks/0/type = "value"
+tracks/0/path = NodePath("BodySprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("FinSprite:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ null ]
+}
+
+[sub_resource type="Animation" id=23]
+resource_name = "Robot Move"
+tracks/0/type = "value"
+tracks/0/path = NodePath("BodySprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 16, 17, 18, 19 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("FinSprite:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ null ]
+}
+
 [sub_resource type="Animation" id=15]
 resource_name = "Slide"
 length = 0.4
@@ -263,6 +351,87 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 14, 15, 16, 17, 18, 19 ]
+}
+
+[sub_resource type="Animation" id=24]
+resource_name = "Wiz Dead"
+tracks/0/type = "value"
+tracks/0/path = NodePath("BodySprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 16, 17, 18, 19, 20, 21, 22, 23 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("FinSprite:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ null ]
+}
+
+[sub_resource type="Animation" id=25]
+resource_name = "Wiz Dead"
+tracks/0/type = "value"
+tracks/0/path = NodePath("BodySprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("FinSprite:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ null ]
+}
+
+[sub_resource type="Animation" id=26]
+resource_name = "Wiz Run"
+tracks/0/type = "value"
+tracks/0/path = NodePath("BodySprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 8, 9, 10, 11, 12, 13, 14, 15 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("FinSprite:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ null ]
 }
 
 [sub_resource type="Animation" id=18]
@@ -429,11 +598,10 @@ position = Vector2( 14, -20 )
 
 [node name="BodySprite" type="Sprite" parent="."]
 position = Vector2( 65, -47 )
-texture = ExtResource( 1 )
+texture = ExtResource( 24 )
 offset = Vector2( -65, 16 )
-hframes = 7
-vframes = 22
-frame = 1
+hframes = 8
+vframes = 3
 
 [node name="FinSprite" type="Sprite" parent="."]
 position = Vector2( 0, -31 )
@@ -497,7 +665,13 @@ Duck -> Idle
 Slide -> Idle
 * -> Hurt
 Hurt -> Idle
-Hurt -> Dead"
+Hurt -> Dead
+WizIdle -> WizDeath
+WizIdle -> WizRun
+WizRun -> WizDeath
+RobotIdle -> RobotMove
+RobotIdle -> RobotDead
+RobotMove -> RobotDead"
 
 [node name="Idle" type="Node" parent="StateMachine"]
 script = ExtResource( 16 )
@@ -527,6 +701,24 @@ one_shot = true
 [node name="Dead" type="Node" parent="StateMachine"]
 script = ExtResource( 3 )
 
+[node name="WizIdle" type="Node" parent="StateMachine"]
+script = ExtResource( 26 )
+
+[node name="WizRun" type="Node" parent="StateMachine"]
+script = ExtResource( 27 )
+
+[node name="WizDeath" type="Node" parent="StateMachine"]
+script = ExtResource( 25 )
+
+[node name="RobotIdle" type="Node" parent="StateMachine"]
+script = ExtResource( 28 )
+
+[node name="RobotMove" type="Node" parent="StateMachine"]
+script = ExtResource( 30 )
+
+[node name="RobotDead" type="Node" parent="StateMachine"]
+script = ExtResource( 29 )
+
 [node name="SpriteAnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "Idle"
 anims/Blop = SubResource( 6 )
@@ -538,9 +730,15 @@ anims/Hurt = SubResource( 11 )
 anims/Idle = SubResource( 12 )
 anims/Jump = SubResource( 13 )
 anims/Land = SubResource( 14 )
+"anims/Robot Dead" = SubResource( 21 )
+"anims/Robot Idle" = SubResource( 22 )
+"anims/Robot Move" = SubResource( 23 )
 anims/Slide = SubResource( 15 )
 anims/SlideFinished = SubResource( 16 )
 anims/Walk = SubResource( 17 )
+"anims/Wiz Dead" = SubResource( 24 )
+"anims/Wiz Idle" = SubResource( 25 )
+"anims/Wiz Run" = SubResource( 26 )
 
 [node name="PickupAnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "Idle"
