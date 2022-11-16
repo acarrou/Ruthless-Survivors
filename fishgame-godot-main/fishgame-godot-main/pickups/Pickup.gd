@@ -90,29 +90,7 @@ func _physics_process(delta: float) -> void:
 		pickup_state = PickupState.THROWN
 	
 	# Apply gravity.
-	linear_velocity += (Vector2.DOWN * gravity * delta)
-	
-	# Apply linear damp.
-	var ld := 1.0 - (linear_damp * delta)
-	if ld < 0:
-		ld = 0.0
-	linear_velocity *= ld
-	
-	# Apply angular damp.
-	var ad := 1.0 - (angular_damp * delta)
-	if ad < 0:
-		ad = 0.0
-	angular_velocity *= ad
-	
-	# Rotate/move object and detect collisions.
-	global_rotation += (angular_velocity * delta)
-	var collision: KinematicCollision2D = move_and_collide(linear_velocity * delta)
-	
-	# Bounce the object if it collides.
-	if collision:
-		#linear_velocity = collision.normal * collision.remainder.length()
-		linear_velocity = collision.normal * (linear_velocity.length() * bounce)
-		move_and_collide(collision.normal * collision.remainder.length())
+	linear_velocity += (Vector2.DOWN)
 	
 	# Sleep the object if it gets below certain linear/angular velocity thresholds.
 	if not GameState.online_play or OnlineMatch.is_network_master_for_node(self):

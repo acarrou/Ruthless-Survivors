@@ -112,6 +112,7 @@ func reload_map() -> void:
 	camera.global_position = original_camera_position
 	camera.limit_left = map_rect.position.x
 	camera.limit_top = map_rect.position.y
+	camera.limit_bottom = -map_rect.position.y
 	camera.limit_right = map_rect.position.x + map_rect.size.x
 
 func kill_player(player_id) -> void:

@@ -41,7 +41,6 @@ func _state_physics_process(delta: float) -> void:
 			get_parent().change_state("Jump", {"input_vector": input_vector,})
 			return
 	elif host.input_buffer.is_action_pressed("down"):
-			print("from idle")
 			get_parent().change_state("Duck")
 			return
 	elif input_vector != Vector2.ZERO:
