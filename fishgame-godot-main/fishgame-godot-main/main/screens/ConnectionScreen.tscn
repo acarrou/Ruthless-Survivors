@@ -33,7 +33,7 @@ __meta__ = {
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
-margin_top = 42.0
+margin_top = 39.0
 margin_right = -4.0
 margin_bottom = -4.0
 
@@ -53,49 +53,49 @@ __meta__ = {
 
 [node name="EmailLabel" type="Label" parent="TabContainer/Login/GridContainer"]
 margin_top = 5.0
-margin_right = 99.0
-margin_bottom = 29.0
+margin_right = 104.0
+margin_bottom = 26.0
 custom_fonts/font = ExtResource( 3 )
 text = "E-mail:"
 
 [node name="Email" type="LineEdit" parent="TabContainer/Login/GridContainer"]
-margin_left = 103.0
+margin_left = 108.0
 margin_right = 532.0
-margin_bottom = 34.0
+margin_bottom = 31.0
 size_flags_horizontal = 3
 custom_fonts/font = ExtResource( 3 )
 caret_blink = true
 
 [node name="PasswordLabel" type="Label" parent="TabContainer/Login/GridContainer"]
-margin_top = 43.0
-margin_right = 99.0
-margin_bottom = 67.0
+margin_top = 40.0
+margin_right = 104.0
+margin_bottom = 61.0
 custom_fonts/font = ExtResource( 3 )
 text = "Password:"
 
 [node name="Password" type="LineEdit" parent="TabContainer/Login/GridContainer"]
-margin_left = 103.0
-margin_top = 38.0
+margin_left = 108.0
+margin_top = 35.0
 margin_right = 532.0
-margin_bottom = 72.0
+margin_bottom = 66.0
 size_flags_horizontal = 3
 custom_fonts/font = ExtResource( 3 )
 secret = true
 caret_blink = true
 
 [node name="Empty" type="Control" parent="TabContainer/Login/GridContainer"]
-margin_top = 76.0
-margin_right = 99.0
-margin_bottom = 113.0
+margin_top = 70.0
+margin_right = 104.0
+margin_bottom = 107.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="SaveCheckBox" type="CheckBox" parent="TabContainer/Login/GridContainer"]
-margin_left = 103.0
-margin_top = 76.0
+margin_left = 108.0
+margin_top = 70.0
 margin_right = 532.0
-margin_bottom = 113.0
+margin_bottom = 107.0
 custom_fonts/font = SubResource( 1 )
 pressed = true
 text = "Save email and password"
@@ -132,65 +132,65 @@ __meta__ = {
 
 [node name="UsernameLabel" type="Label" parent="TabContainer/Create Account/GridContainer"]
 margin_top = 5.0
-margin_right = 99.0
-margin_bottom = 29.0
+margin_right = 104.0
+margin_bottom = 26.0
 custom_fonts/font = ExtResource( 3 )
 text = "Username:"
 
 [node name="Username" type="LineEdit" parent="TabContainer/Create Account/GridContainer"]
-margin_left = 103.0
+margin_left = 108.0
 margin_right = 532.0
-margin_bottom = 34.0
+margin_bottom = 31.0
 size_flags_horizontal = 3
 custom_fonts/font = ExtResource( 3 )
 caret_blink = true
 
 [node name="EmailLabel" type="Label" parent="TabContainer/Create Account/GridContainer"]
-margin_top = 43.0
-margin_right = 99.0
-margin_bottom = 67.0
+margin_top = 40.0
+margin_right = 104.0
+margin_bottom = 61.0
 custom_fonts/font = ExtResource( 3 )
 text = "E-mail:"
 
 [node name="Email" type="LineEdit" parent="TabContainer/Create Account/GridContainer"]
-margin_left = 103.0
-margin_top = 38.0
+margin_left = 108.0
+margin_top = 35.0
 margin_right = 532.0
-margin_bottom = 72.0
+margin_bottom = 66.0
 size_flags_horizontal = 3
 custom_fonts/font = ExtResource( 3 )
 caret_blink = true
 
 [node name="PasswordLabel" type="Label" parent="TabContainer/Create Account/GridContainer"]
-margin_top = 81.0
-margin_right = 99.0
-margin_bottom = 105.0
+margin_top = 75.0
+margin_right = 104.0
+margin_bottom = 96.0
 custom_fonts/font = ExtResource( 3 )
 text = "Password:"
 
 [node name="Password" type="LineEdit" parent="TabContainer/Create Account/GridContainer"]
-margin_left = 103.0
-margin_top = 76.0
+margin_left = 108.0
+margin_top = 70.0
 margin_right = 532.0
-margin_bottom = 110.0
+margin_bottom = 101.0
 size_flags_horizontal = 3
 custom_fonts/font = ExtResource( 3 )
 secret = true
 caret_blink = true
 
 [node name="Empty" type="Control" parent="TabContainer/Create Account/GridContainer"]
-margin_top = 114.0
-margin_right = 99.0
-margin_bottom = 151.0
+margin_top = 105.0
+margin_right = 104.0
+margin_bottom = 142.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="SaveCheckBox" type="CheckBox" parent="TabContainer/Create Account/GridContainer"]
-margin_left = 103.0
-margin_top = 114.0
+margin_left = 108.0
+margin_top = 105.0
 margin_right = 532.0
-margin_bottom = 151.0
+margin_bottom = 142.0
 custom_fonts/font = SubResource( 1 )
 pressed = true
 text = "Save email and password"
@@ -204,5 +204,6 @@ margin_left = -83.0
 margin_top = -54.0
 margin_right = 83.0
 text = "Create Account"
+
 [connection signal="pressed" from="TabContainer/Login/LoginButton" to="." method="_on_LoginButton_pressed"]
 [connection signal="pressed" from="TabContainer/Create Account/CreateAccountButton" to="." method="_on_CreateAccountButton_pressed"]

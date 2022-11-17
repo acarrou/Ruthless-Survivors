@@ -47,6 +47,9 @@ func _on_TitleScreen_play_online() -> void:
 	
 	ui_layer.show_screen("ConnectionScreen")
 
+func _on_TitleScreen_exit_game() -> void:
+	get_tree().quit()
+
 func _on_UILayer_change_screen(name: String, _screen) -> void:
 	if name == 'TitleScreen':
 		ui_layer.hide_back_button()
