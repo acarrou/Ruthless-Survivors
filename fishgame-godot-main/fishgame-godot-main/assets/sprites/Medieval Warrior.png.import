@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/whale_orange.png-7710559247461bbb7f146e22b88110ce.stex"
+path="res://.import/Medieval Warrior.png-f8ec19eba502ccfdaff26af540dcfbef.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/whale_orange.png"
-dest_files=[ "res://.import/whale_orange.png-7710559247461bbb7f146e22b88110ce.stex" ]
+source_file="res://assets/sprites/Medieval Warrior.png"
+dest_files=[ "res://.import/Medieval Warrior.png-f8ec19eba502ccfdaff26af540dcfbef.stex" ]
 
 [params]
 

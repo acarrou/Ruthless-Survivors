@@ -25,4 +25,3 @@ func _state_physics_process(delta: float) -> void:
 	
 	if not host.input_buffer.is_action_pressed("down") or not host.is_on_floor():
 		get_parent().change_state("Idle")
-
