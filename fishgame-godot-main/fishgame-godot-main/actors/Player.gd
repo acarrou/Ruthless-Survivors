@@ -4,21 +4,21 @@ var ExplodeEffect: PackedScene = preload("res://actors/ExplodeEffect.tscn")
 var InputBuffer: Reference = preload("res://components/InputBuffer.gd")
 
 enum PlayerSkin {
-	ORANGE,
-	GREEN,
-	BLUE,
-	PURPLE,
+	MEDIEVALWARRIOR,
+	EVILWIZ,
+	WIZARD,
+	ROBOT,
 	MAX,
 }
 
 var skin_resources = [
-	preload("res://assets/sprites/whale_orange.png"),
-	preload("res://assets/sprites/whale_green.png"),
-	preload("res://assets/sprites/whale_blue.png"),
-	preload("res://assets/sprites/whale_purple.png"),
+	preload("res://assets/sprites/Medieval Warrior.png"),
+	preload("res://assets/sprites/Evil Wizard.png"),
+	preload("res://assets/sprites/Wizard.png"),
+	preload("res://assets/sprites/Robot.png"),
 ]
 
-export (PlayerSkin) var player_skin := PlayerSkin.BLUE setget set_player_skin
+export (PlayerSkin) var player_skin := PlayerSkin.WIZARD setget set_player_skin
 export (float) var speed := 350.0
 export (float) var acceleration := 2000.0
 export (float) var friction := 1500.0
@@ -40,7 +40,6 @@ signal player_dead ()
 
 onready var initial_scale = scale
 onready var body_sprite: Sprite = $BodySprite
-onready var fin_sprite: Sprite = $FinSprite
 onready var back_pickup_position: Position2D = $BackPickupPosition
 onready var front_pickup_position: Position2D = $FrontPickupPosition
 onready var pickup_area: Area2D = $PickupArea
@@ -56,8 +55,6 @@ onready var sliding_collision_shape := $SlidingCollisionShape
 onready var gravity: float = float(ProjectSettings.get_setting("physics/2d/default_gravity"))
 
 var flip_h := false setget set_flip_h
-var show_gliding := false setget set_show_gliding
-var show_sliding := false setget set_show_sliding
 
 const ONE_WAY_PLATFORMS_COLLISION_BIT := 4
 var pass_through_one_way_platforms := false setget set_pass_through_one_way_platforms
@@ -66,7 +63,7 @@ var vector := Vector2.ZERO
 var current_pickup: KinematicBody2D
 var current_pickup_position: Position2D
 
-const PlayerActions := ['left', 'right', 'down', 'jump', 'grab', 'use', 'blop']
+const PlayerActions := ['left', 'right', 'down', 'jump', 'grab', 'use']
 var input_buffer
 
 const SYNC_DELAY := 3
@@ -80,7 +77,6 @@ func _ready():
 	state_machine.set_physics_process(false)
 	
 	body_sprite.texture = skin_resources[player_skin]
-	fin_sprite.texture = skin_resources[player_skin]
 	reset_state()
 
 func _get_custom_rpc_methods() -> Array:
@@ -96,9 +92,15 @@ func set_player_skin(_player_skin: int) -> void:
 	if player_skin != _player_skin and _player_skin < PlayerSkin.MAX and _player_skin >= 0:
 		player_skin = _player_skin
 		
+		if player_skin == 1 or 3:
+			body_sprite.hframes = 8
+			body_sprite.vframes = 3
+		else:
+			body_sprite.hframes = 7
+			body_sprite.vframes = 22
+			
 		if body_sprite != null:
 			body_sprite.texture = skin_resources[player_skin]
-			fin_sprite.texture = skin_resources[player_skin]
 
 func set_player_name(_player_name: String) -> void:
 	# @todo Implement
@@ -121,34 +123,11 @@ func set_pass_through_one_way_platforms(_pass_through: bool) -> void:
 func _on_PassThroughDetectorArea_body_exited(body: Node) -> void:
 	self.pass_through_one_way_platforms = false
 
-func set_show_gliding(_show_gliding: bool) -> void:
-	if show_gliding != _show_gliding:
-		show_gliding = _show_gliding
-		
-		if show_gliding:
-			pickup_animation_player.play("RotateUp")
-		else:
-			pickup_animation_player.play_backwards("RotateUp")
-
-func set_show_sliding(_show_sliding: bool) -> void:
-	if show_sliding != _show_sliding:
-		show_sliding = _show_sliding
-		
-		if show_sliding:
-			pickup_animation_player.play("Slide")
-		else:
-			pickup_animation_player.play("Idle")
-
 func play_animation(name) -> void:
 	sprite_animation_player.play(name)
 
 func get_current_animation() -> String:
 	return sprite_animation_player.current_animation
-
-func _on_BodySprite_frame_changed() -> void:
-	if not fin_sprite or not body_sprite:
-		yield(self, "ready")
-	fin_sprite.frame = body_sprite.frame + 7
 
 func reset_state() -> void:
 	var current_state_name = state_machine.current_state.name if state_machine.current_state != null else "None"
@@ -254,9 +233,6 @@ func _do_die() -> void:
 	queue_free()
 	emit_signal("player_dead")
 
-func _play_blop_sound() -> void:
-	sounds.play("Blop")
-	
 func move(delta: float) -> void:
 	vector.x = clamp(vector.x, -speed, speed)
 	vector.y = clamp(vector.y, -speed, speed)
@@ -282,7 +258,7 @@ func _physics_process(delta: float) -> void:
 			if sync_forced or input_buffer_changed or sync_counter >= SYNC_DELAY:
 				sync_counter = 0
 				sync_forced = false
-				OnlineMatch.custom_rpc(self, "update_remote_player", [input_buffer.buffer, state_machine.current_state.name, sync_state_info, global_position, vector, body_sprite.frame, flip_h, show_gliding, show_sliding, pass_through_one_way_platforms])
+				OnlineMatch.custom_rpc(self, "update_remote_player", [input_buffer.buffer, state_machine.current_state.name, sync_state_info, global_position, vector, body_sprite.frame, flip_h, pass_through_one_way_platforms])
 				if sync_state_info.size() > 0:
 					sync_state_info.clear()
 		else:
@@ -298,8 +274,6 @@ func update_remote_player(_input_buffer: Dictionary, current_state: String, stat
 	global_position = _position
 	vector = _vector
 	set_flip_h(_flip_h)
-	set_show_gliding(_show_gliding)
-	set_show_sliding(_show_sliding)
 	set_pass_through_one_way_platforms(_pass_through)
 
 func _on_StateMachine_state_changed(state, info: Dictionary) -> void:

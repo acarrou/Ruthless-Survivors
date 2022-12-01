@@ -25,4 +25,3 @@ func _state_physics_process(delta: float) -> void:
 	# Change state to falling once we start to head down.
 	if host.vector.y >= 0.0:
 		get_parent().change_state("Idle")
-

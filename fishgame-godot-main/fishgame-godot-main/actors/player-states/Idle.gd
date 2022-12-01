@@ -49,11 +49,8 @@ func _state_physics_process(delta: float) -> void:
 	
 	_decelerate_to_zero(delta)
 	
-	if host.input_buffer.is_action_just_pressed("blop"):
-		host.play_animation("Blop")
-	
 	# If we just decelerated to 0, then switch to the idle animation.
-	if not host.get_current_animation() in ["Idle", "Blop", "Land"] and host.vector.x == 0:
+	if not host.get_current_animation() in ["Idle", "Land"] and host.vector.x == 0:
 		host.play_animation("Idle")
 
 func _on_SpriteAnimationPlayer_animation_finished(anim_name: String) -> void:
