@@ -57,8 +57,8 @@ end_cap_mode = 2
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( -5, 1 )
 texture = ExtResource( 1 )
-hframes = 4
 vframes = 5
+hframes = 4
 frame = 12
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -78,6 +78,5 @@ shape = SubResource( 2 )
 autoplay = "Idle"
 anims/Hit = SubResource( 3 )
 anims/Idle = SubResource( 4 )
-
 [connection signal="body_entered" from="." to="." method="_on_Projectile_body_entered"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
