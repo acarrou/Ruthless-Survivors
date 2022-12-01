@@ -52,18 +52,6 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id=9]
 length = 0.1
-tracks/0/type = "value"
-tracks/0/path = NodePath("BodySprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ 56 ]
-}
 
 [sub_resource type="Animation" id=11]
 length = 0.3
@@ -295,7 +283,6 @@ texture = ExtResource( 24 )
 offset = Vector2( -65, 16 )
 hframes = 8
 vframes = 3
-frame = 8
 
 [node name="FrontPickupPosition" type="Position2D" parent="."]
 position = Vector2( -2, -20 )
