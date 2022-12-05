@@ -1,5 +1,6 @@
-[gd_scene load_steps=34 format=2]
+[gd_scene load_steps=33 format=2]
 
+[ext_resource path="res://assets/sounds/Hit damage 1.wav" type="AudioStream" id=1]
 [ext_resource path="res://actors/player-states/Hurt.gd" type="Script" id=2]
 [ext_resource path="res://actors/player-states/Dead.gd" type="Script" id=3]
 [ext_resource path="res://actors/player-states/Duck.gd" type="Script" id=4]
@@ -8,7 +9,6 @@
 [ext_resource path="res://assets/sounds/pickup.wav" type="AudioStream" id=7]
 [ext_resource path="res://assets/sounds/throw.wav" type="AudioStream" id=8]
 [ext_resource path="res://actors/Player.gd" type="Script" id=9]
-[ext_resource path="res://assets/sounds/hurt.wav" type="AudioStream" id=10]
 [ext_resource path="res://actors/player-states/Move.gd" type="Script" id=11]
 [ext_resource path="res://addons/snopek-state-machine/StateMachine.gd" type="Script" id=12]
 [ext_resource path="res://assets/sounds/explosions/explosion3.wav" type="AudioStream" id=13]
@@ -17,7 +17,6 @@
 [ext_resource path="res://actors/player-states/Idle.gd" type="Script" id=16]
 [ext_resource path="res://assets/sounds/explosions/explosion1.wav" type="AudioStream" id=17]
 [ext_resource path="res://actors/player-states/Slide.gd" type="Script" id=18]
-[ext_resource path="res://actors/player-states/Fall.gd" type="Script" id=22]
 [ext_resource path="res://assets/sprites/Robot.png" type="Texture" id=24]
 
 [sub_resource type="RectangleShape2D" id=1]
@@ -55,6 +54,20 @@ length = 0.1
 
 [sub_resource type="Animation" id=11]
 length = 0.3
+tracks/0/type = "audio"
+tracks/0/path = NodePath("Sounds/Hurt")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 1 )
+} ],
+"times": PoolRealArray( 0 )
+}
 
 [sub_resource type="Animation" id=12]
 length = 0.8
@@ -343,9 +356,6 @@ script = ExtResource( 11 )
 [node name="Jump" type="Node" parent="StateMachine"]
 script = ExtResource( 15 )
 
-[node name="Fall" type="Node" parent="StateMachine"]
-script = ExtResource( 22 )
-
 [node name="Duck" type="Node" parent="StateMachine"]
 script = ExtResource( 4 )
 
@@ -394,7 +404,7 @@ stream = ExtResource( 8 )
 bus = "Sound Effects"
 
 [node name="Hurt" type="AudioStreamPlayer" parent="Sounds"]
-stream = ExtResource( 10 )
+stream = ExtResource( 1 )
 bus = "Sound Effects"
 
 [node name="Explode" type="Node" parent="Sounds"]
