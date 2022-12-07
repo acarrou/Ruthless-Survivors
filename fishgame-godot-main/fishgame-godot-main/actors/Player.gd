@@ -55,6 +55,8 @@ onready var sliding_collision_shape := $SlidingCollisionShape
 onready var gravity: float = float(ProjectSettings.get_setting("physics/2d/default_gravity"))
 
 var flip_h := false setget set_flip_h
+var show_gliding := false setget set_show_gliding
+var show_sliding := false setget set_show_sliding
 
 const ONE_WAY_PLATFORMS_COLLISION_BIT := 4
 var pass_through_one_way_platforms := false setget set_pass_through_one_way_platforms
@@ -122,6 +124,24 @@ func set_pass_through_one_way_platforms(_pass_through: bool) -> void:
 
 func _on_PassThroughDetectorArea_body_exited(body: Node) -> void:
 	self.pass_through_one_way_platforms = false
+
+func set_show_gliding(_show_gliding: bool) -> void:
+	if show_gliding != _show_gliding:
+		show_gliding = _show_gliding
+
+		if show_gliding:
+			pickup_animation_player.play("RotateUp")
+		else:
+			pickup_animation_player.play_backwards("RotateUp")
+
+func set_show_sliding(_show_sliding: bool) -> void:
+	if show_sliding != _show_sliding:
+		show_sliding = _show_sliding
+
+		if show_sliding:
+			pickup_animation_player.play("Slide")
+		else:
+			pickup_animation_player.play("Idle")
 
 func play_animation(name) -> void:
 	sprite_animation_player.play(name)
@@ -262,7 +282,7 @@ func _physics_process(delta: float) -> void:
 			if sync_forced or input_buffer_changed or sync_counter >= SYNC_DELAY:
 				sync_counter = 0
 				sync_forced = false
-				OnlineMatch.custom_rpc(self, "update_remote_player", [input_buffer.buffer, state_machine.current_state.name, sync_state_info, global_position, vector, body_sprite.frame, flip_h, pass_through_one_way_platforms])
+				OnlineMatch.custom_rpc(self, "update_remote_player", [input_buffer.buffer, state_machine.current_state.name, sync_state_info, global_position, vector, body_sprite.frame, flip_h, show_gliding, show_sliding, pass_through_one_way_platforms])
 				if sync_state_info.size() > 0:
 					sync_state_info.clear()
 		else:
@@ -278,6 +298,8 @@ func update_remote_player(_input_buffer: Dictionary, current_state: String, stat
 	global_position = _position
 	vector = _vector
 	set_flip_h(_flip_h)
+	set_show_gliding(_show_gliding)
+	set_show_sliding(_show_sliding)
 	set_pass_through_one_way_platforms(_pass_through)
 
 func _on_StateMachine_state_changed(state, info: Dictionary) -> void:
