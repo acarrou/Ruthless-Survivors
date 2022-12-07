@@ -2,12 +2,12 @@
 
 importer="wav"
 type="AudioStreamSample"
-path="res://.import/blop2.wav-d1941dfaaadfb48066e0c478f897c0c6.sample"
+path="res://.import/Hit damage 1.wav-5498f05e6a4453893165b5eddd79ab1b.sample"
 
 [deps]
 
-source_file="res://assets/sounds/blops/blop2.wav"
-dest_files=[ "res://.import/blop2.wav-d1941dfaaadfb48066e0c478f897c0c6.sample" ]
+source_file="res://assets/sounds/Hit damage 1.wav"
+dest_files=[ "res://.import/Hit damage 1.wav-5498f05e6a4453893165b5eddd79ab1b.sample" ]
 
 [params]
 

@@ -128,6 +128,10 @@ func play_animation(name) -> void:
 
 func get_current_animation() -> String:
 	return sprite_animation_player.current_animation
+	
+func _on_BodySprite_frame_changed() -> void:
+	if not body_sprite:
+		yield(self, "ready")
 
 func reset_state() -> void:
 	var current_state_name = state_machine.current_state.name if state_machine.current_state != null else "None"
