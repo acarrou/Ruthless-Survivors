@@ -105,6 +105,7 @@ func set_player_skin(_player_skin: int) -> void:
 			body_sprite.texture = skin_resources[player_skin]
 
 func set_player_name(_player_name: String) -> void:
+	get_node("PlayerName").text = _player_name
 	# @todo Implement
 	pass
 
@@ -114,8 +115,12 @@ func set_flip_h(_flip_h: bool) -> void:
 		
 		if flip_h:
 			scale.x = -initial_scale.x * sign(scale.y)
+			get_node("PlayerName").rect_scale.x = -1
+			get_node("PlayerName").rect_position.x = 20
 		else:
 			scale.x = initial_scale.x * sign(scale.y)
+			get_node("PlayerName").rect_scale.x = 1
+			get_node("PlayerName").rect_position.x = -20
 
 func set_pass_through_one_way_platforms(_pass_through: bool) -> void:
 	if pass_through_one_way_platforms != _pass_through:
