@@ -1,0 +1,1 @@
+[Fish Game media assets](https://github.com/heroiclabs/fishgame-godot/tree/main/assets) © 2021 by [Heroic Labs](https://heroiclabs.com/), unless specified otherwise in their respective folder, are licensed under [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/)
