@@ -89,4 +89,4 @@ func enemyContact(hitbox):
 		$AnimationSprite.play("Wizard Dying")
 		yield($AnimationSprite, "animation_finished")
 		hide()
-		get_tree().reload_current_scene()
+		get_tree().change_scene("res://Main.tscn")
