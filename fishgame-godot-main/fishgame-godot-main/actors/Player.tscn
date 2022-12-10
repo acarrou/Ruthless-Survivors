@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=2]
+[gd_scene load_steps=34 format=2]
 
 [ext_resource path="res://assets/sounds/Hit damage 1.wav" type="AudioStream" id=1]
 [ext_resource path="res://actors/player-states/Hurt.gd" type="Script" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://assets/sounds/pickup.wav" type="AudioStream" id=7]
 [ext_resource path="res://assets/sounds/throw.wav" type="AudioStream" id=8]
 [ext_resource path="res://actors/Player.gd" type="Script" id=9]
+[ext_resource path="res://assets/sprites/shadow.png" type="Texture" id=10]
 [ext_resource path="res://actors/player-states/Move.gd" type="Script" id=11]
 [ext_resource path="res://addons/snopek-state-machine/StateMachine.gd" type="Script" id=12]
 [ext_resource path="res://assets/sounds/explosions/explosion3.wav" type="AudioStream" id=13]
@@ -287,11 +288,17 @@ collision_layer = 2
 collision_mask = 17
 script = ExtResource( 9 )
 
+[node name="Sprite" type="Sprite" parent="."]
+modulate = Color( 1, 1, 1, 0.4 )
+position = Vector2( 0, -8 )
+scale = Vector2( 0.637393, 0.8 )
+texture = ExtResource( 10 )
+
 [node name="PlayerName" type="Label" parent="."]
 margin_left = -20.0
-margin_top = -71.0
+margin_top = -74.0
 margin_right = 20.0
-margin_bottom = -57.0
+margin_bottom = -60.0
 align = 1
 
 [node name="BackPickupPosition" type="Position2D" parent="."]
@@ -308,20 +315,23 @@ vframes = 3
 position = Vector2( -2, -20 )
 
 [node name="StandingCollisionShape" type="CollisionShape2D" parent="."]
-position = Vector2( 2, -28 )
+position = Vector2( 0, -28 )
 shape = SubResource( 1 )
 
 [node name="DuckingCollisionShape" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2( 2, -19 )
 shape = SubResource( 2 )
 disabled = true
 
 [node name="SlidingCollisionShape" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2( 0, -14 )
 shape = SubResource( 3 )
 disabled = true
 
 [node name="PickupArea" type="Area2D" parent="."]
+visible = false
 position = Vector2( 2, 0 )
 collision_layer = 0
 collision_mask = 8
@@ -333,6 +343,7 @@ position = Vector2( 0, -14 )
 shape = SubResource( 4 )
 
 [node name="PassThroughDetectorArea" type="Area2D" parent="."]
+visible = false
 position = Vector2( 2, 0 )
 collision_layer = 0
 collision_mask = 16

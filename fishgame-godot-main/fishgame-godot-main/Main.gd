@@ -210,3 +210,11 @@ func _on_Music_song_finished(song) -> void:
 	if not music.current_song.playing:
 		pass
 		#music.play_random()
+
+
+func _on_TitleScreen_play_single_player():
+	GameState.online_play = false
+	print("Pressed Single Player")
+	ui_layer.hide_screen()
+	ui_layer.show_back_button()
+	get_tree().change_scene("res://SinglePlayer/SinglePlayer.tscn")
