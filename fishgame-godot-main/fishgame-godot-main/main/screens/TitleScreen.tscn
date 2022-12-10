@@ -65,40 +65,46 @@ size_flags_horizontal = 3
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 250.0
-margin_top = -175.0
-margin_right = -250.0
-margin_bottom = -50.0
+margin_left = 251.0
+margin_top = -180.0
+margin_right = -243.0
+margin_bottom = -55.0
+
+[node name="SinglePlayerButton" type="Button" parent="VBoxContainer"]
+margin_right = 146.0
+margin_bottom = 27.0
+text = "Single Player"
 
 [node name="LocalButton" type="Button" parent="VBoxContainer"]
-margin_right = 140.0
-margin_bottom = 27.0
+margin_top = 31.0
+margin_right = 146.0
+margin_bottom = 58.0
 rect_min_size = Vector2( 125, 0 )
 text = "Local"
 
 [node name="OnlineButton" type="Button" parent="VBoxContainer"]
-margin_top = 31.0
-margin_right = 140.0
-margin_bottom = 58.0
+margin_top = 62.0
+margin_right = 146.0
+margin_bottom = 89.0
 rect_min_size = Vector2( 125, 0 )
 text = "Online"
 
 [node name="ExitButton" type="Button" parent="VBoxContainer"]
-margin_top = 62.0
-margin_right = 140.0
-margin_bottom = 89.0
+margin_top = 93.0
+margin_right = 146.0
+margin_bottom = 120.0
 rect_min_size = Vector2( 125, 0 )
 text = "Quit"
 
 [node name="CreditsButton" type="Button" parent="VBoxContainer"]
 visible = false
-margin_left = 417.0
-margin_top = 185.0
-margin_right = 542.0
-margin_bottom = 310.0
+margin_top = 124.0
+margin_right = 146.0
+margin_bottom = 151.0
 rect_min_size = Vector2( 125, 0 )
 text = "Credits"
 
+[connection signal="pressed" from="VBoxContainer/SinglePlayerButton" to="." method="_on_SinglePlayerButton_pressed"]
 [connection signal="pressed" from="VBoxContainer/LocalButton" to="." method="_on_LocalButton_pressed"]
 [connection signal="pressed" from="VBoxContainer/OnlineButton" to="." method="_on_OnlineButton_pressed"]
 [connection signal="pressed" from="VBoxContainer/ExitButton" to="." method="_on_ExitButton_pressed"]
