@@ -110,9 +110,8 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Fish Game"
+config/name="Ruthless Survivors"
 run/main_scene="res://Main.tscn"
-config/icon="res://icon.png"
 
 [autoload]
 
