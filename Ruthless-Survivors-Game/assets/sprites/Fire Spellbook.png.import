@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Med Warrior.png-933acfe9381e4410b7098cc12b8ddf51.stex"
+path="res://.import/Fire Spellbook.png-5ee3bc3d0d2edf6834f0cac6bdda487b.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/Med Warrior.png"
-dest_files=[ "res://.import/Med Warrior.png-933acfe9381e4410b7098cc12b8ddf51.stex" ]
+source_file="res://assets/sprites/Fire Spellbook.png"
+dest_files=[ "res://.import/Fire Spellbook.png-5ee3bc3d0d2edf6834f0cac6bdda487b.stex" ]
 
 [params]
 

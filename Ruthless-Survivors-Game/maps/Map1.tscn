@@ -1,8 +1,9 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://maps/Map.gd" type="Script" id=1]
 [ext_resource path="res://assets/RF_Catacombs_v1.0/mainlevbuild.png" type="Texture" id=2]
 [ext_resource path="res://pickups/Gun.tscn" type="PackedScene" id=3]
+[ext_resource path="res://pickups/FireBook.tscn" type="PackedScene" id=4]
 [ext_resource path="res://pickups/Sword.tscn" type="PackedScene" id=5]
 [ext_resource path="res://maps/StaticBackground.tscn" type="PackedScene" id=6]
 [ext_resource path="res://objects/TimedGeneratorFlat.tscn" type="PackedScene" id=9]
@@ -273,7 +274,7 @@ pickup_scene = ExtResource( 5 )
 
 [node name="TimedGenerator3" parent="Objects" instance=ExtResource( 9 )]
 position = Vector2( 541, -717 )
-pickup_scene = ExtResource( 5 )
+pickup_scene = ExtResource( 4 )
 
 [node name="TimedGenerator4" parent="Objects" instance=ExtResource( 9 )]
 position = Vector2( 16, -657 )
