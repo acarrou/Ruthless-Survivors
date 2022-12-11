@@ -16,6 +16,18 @@ colors = PoolColorArray( 0.996094, 0.193577, 0.0622559, 1, 0.996094, 0.782241, 0
 [sub_resource type="Animation" id=3]
 resource_name = "Explode"
 length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
 
 [sub_resource type="Animation" id=4]
 resource_name = "Hurl"
@@ -54,6 +66,7 @@ script = ExtResource( 4 )
 default_color = Color( 0.956863, 0.921569, 0.552941, 0.584314 )
 gradient = SubResource( 5 )
 texture = ExtResource( 3 )
+texture_mode = 1
 begin_cap_mode = 2
 end_cap_mode = 2
 
@@ -84,3 +97,4 @@ anims/Hurl = SubResource( 4 )
 
 [connection signal="body_entered" from="." to="." method="_on_Fireball_body_entered"]
 [connection signal="body_entered" from="Hitbox" to="Hitbox" method="_on_body_entered"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
