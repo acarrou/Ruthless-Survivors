@@ -1,17 +1,17 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://SinglePlayer/UI/HUD.gd" type="Script" id=1]
-[ext_resource path="res://SinglePlayer/Assets/Icons/tile198.png" type="Texture" id=2]
+[ext_resource path="res://assets/fonts/riskofrainfont.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://assets/ui/close.png" type="Texture" id=3]
+[ext_resource path="res://main/screens/TransparentButton.gd" type="Script" id=4]
 
-[sub_resource type="Theme" id=5]
+[sub_resource type="DynamicFont" id=5]
+size = 10
+font_data = ExtResource( 2 )
+
+[sub_resource type="Theme" id=6]
+default_font = SubResource( 5 )
 Label/colors/font_color = Color( 0.952941, 0.921569, 0.862745, 1 )
-
-[sub_resource type="DynamicFontData" id=6]
-font_path = "res://Assets/Fonts/OptimusPrinceps.ttf"
-
-[sub_resource type="DynamicFont" id=7]
-size = 18
-font_data = SubResource( 6 )
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0, 0, 0, 0 )
@@ -25,6 +25,13 @@ ProgressBar/styles/fg = SubResource( 2 )
 
 [sub_resource type="StyleBoxFlat" id=4]
 bg_color = Color( 0.882353, 0.219608, 0.219608, 1 )
+
+[sub_resource type="DynamicFont" id=7]
+size = 10
+font_data = ExtResource( 2 )
+
+[sub_resource type="Theme" id=8]
+default_font = SubResource( 7 )
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource( 1 )
@@ -40,82 +47,87 @@ margin_bottom = -40.0
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
 margin_right = 560.0
 margin_bottom = 280.0
+custom_constants/separation = 0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
-margin_right = 76.0
+[node name="ReferenceRect" type="ReferenceRect" parent="MarginContainer/HBoxContainer"]
+margin_right = 130.0
 margin_bottom = 280.0
 size_flags_horizontal = 3
+size_flags_vertical = 3
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-margin_right = 76.0
-margin_bottom = 30.0
-
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
-margin_right = 30.0
-margin_bottom = 30.0
-rect_min_size = Vector2( 30, 30 )
-texture = ExtResource( 2 )
-expand = true
-
-[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
-margin_left = 34.0
-margin_top = 14.0
-margin_right = 46.0
-margin_bottom = 16.0
-theme = SubResource( 5 )
-custom_fonts/font = SubResource( 7 )
-text = "581975987139"
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+margin_left = 130.0
+margin_right = 430.0
+margin_bottom = 280.0
+rect_min_size = Vector2( 300, 0 )
+custom_constants/separation = 3
 
 [node name="ReferenceRect" type="ReferenceRect" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-margin_top = 34.0
-margin_right = 76.0
-margin_bottom = 280.0
+margin_right = 300.0
+margin_bottom = 232.0
 size_flags_vertical = 3
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
-margin_left = 80.0
-margin_right = 480.0
-margin_bottom = 280.0
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+margin_top = 235.0
+margin_right = 300.0
+margin_bottom = 252.0
+custom_constants/separation = 0
 
-[node name="ReferenceRect" type="ReferenceRect" parent="MarginContainer/HBoxContainer/VBoxContainer2"]
-margin_right = 400.0
-margin_bottom = 244.0
-size_flags_vertical = 3
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer"]
+margin_right = 300.0
+margin_bottom = 15.0
+theme = SubResource( 6 )
+text = "LVL 19419489"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer2"]
-margin_top = 248.0
-margin_right = 400.0
-margin_bottom = 280.0
-rect_min_size = Vector2( 400, 0 )
-
-[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer2/VBoxContainer"]
-margin_right = 400.0
-margin_bottom = 2.0
-theme = SubResource( 5 )
-custom_fonts/font = SubResource( 7 )
-text = "Lv. 735971561639"
-
-[node name="ProgressBar" type="ProgressBar" parent="MarginContainer/HBoxContainer/VBoxContainer2/VBoxContainer"]
-margin_top = 6.0
-margin_right = 400.0
-margin_bottom = 8.0
-rect_min_size = Vector2( 0, 2 )
+[node name="ProgressBar" type="ProgressBar" parent="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer"]
+margin_top = 15.0
+margin_right = 300.0
+margin_bottom = 17.5
+rect_min_size = Vector2( 0, 2.5 )
 theme = SubResource( 3 )
 value = 5.0
 percent_visible = false
 
-[node name="ProgressBar2" type="ProgressBar" parent="MarginContainer/HBoxContainer/VBoxContainer2/VBoxContainer"]
-margin_top = 12.0
-margin_right = 400.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 0, 20 )
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+margin_top = 255.0
+margin_right = 300.0
+margin_bottom = 280.0
+custom_constants/separation = 0
+
+[node name="ProgressBar" type="ProgressBar" parent="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer2"]
+margin_right = 300.0
+margin_bottom = 10.0
+rect_min_size = Vector2( 0, 10 )
 theme = SubResource( 3 )
 custom_styles/fg = SubResource( 4 )
 value = 10.0
 percent_visible = false
 
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer2"]
+margin_top = 10.0
+margin_right = 300.0
+margin_bottom = 25.0
+theme = SubResource( 8 )
+custom_colors/font_color = Color( 0.882353, 0.219608, 0.219608, 1 )
+text = "+200"
+
 [node name="ReferenceRect2" type="ReferenceRect" parent="MarginContainer/HBoxContainer"]
-margin_left = 484.0
+margin_left = 430.0
 margin_right = 560.0
 margin_bottom = 280.0
 size_flags_horizontal = 3
+
+[node name="BackButton" type="Button" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -30.0
+margin_top = 2.0
+margin_right = -2.0
+margin_bottom = 30.0
+focus_mode = 0
+enabled_focus_mode = 0
+icon = ExtResource( 3 )
+clip_text = true
+script = ExtResource( 4 )
+
+[connection signal="pressed" from="BackButton" to="BackButton" method="_on_BackButton_pressed"]
