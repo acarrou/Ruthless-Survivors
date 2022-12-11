@@ -4,12 +4,13 @@ var max_health = 60
 onready var current_health = max_health
 var spawn_distance = 1800
 onready var damage = get_parent().get_node("Player").damage_out
-onready var enemies_killed = get_parent().get_node("Player").enemies_killed
+var enemies_killed = 0
 onready var softCollision = $SoftCollision
 onready var push = Vector2()
 var gem_scene = preload("res://SinglePlayer/DroppedItems/EXP/EXP.tscn")
 
 func _ready():
+	add_to_group("Enemies")
 	position = get_parent().get_node("Player").position + Vector2(spawn_distance, 0).rotated(rand_range(0, 2*PI))
 
 func _physics_process(delta):
